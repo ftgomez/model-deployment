@@ -8,3 +8,7 @@ variable "region" {
   default     = "us-central1"
 }
 
+variable "service_account" {
+  description = "Service Account ID"
+  type        = string
+}
