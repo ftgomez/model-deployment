@@ -7,3 +7,4 @@ variable "region" {
   description = "Region of your project"
   default     = "us-central1"
 }
+
