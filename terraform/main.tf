@@ -20,11 +20,9 @@ resource "google_project_service" "vertexai" {
 resource "google_project_iam_binding" "vertexai" {
   project = var.project_id
   role    = "roles/aiplatform.user"
-  members = [ "serviceAccount:${var.service_account}" ]
 }
 
 resource "google_project_iam_binding" "storage" {
   project = var.project_id
   role    = "roles/storage.admin"
-  members = [ "serviceAccount:${var.service_account}" ]
 }
