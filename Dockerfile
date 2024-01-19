@@ -8,4 +8,7 @@ COPY requirements.txt /app/requirements.txt
 
 RUN pip install -r requirements.txt
 
-CMD [ "bentoml", "serve", "src.runners" ]
+ARG BENTO_SERVICE_NAME
+ENV BENTO_SERVICE_NAME=$BENTO_SERVICE_NAME
+
+CMD bentoml serve src/runners.py:${BENTO_SERVICE_NAME}
