@@ -25,21 +25,18 @@ class BertRunnable(bentoml.Runnable):
 class TransformersClassifierRunnable(bentoml.Runnable):
     SUPPORTED_RESOURCES = ("cpu",)
     SUPPORTS_CPU_MULTI_THREADING = False
-    
+
     def __init__(self):
         self.model = pipeline("sentiment-analysis")
-    
+
     @bentoml.Runnable.method(batchable=False)
     def classify(self, input_data: str) -> list:
         predicted_class = self.model(input_data)
-        
+
         return predicted_class
-    
+
 
 bert_runner = bentoml.Runner(BertRunnable, name="bert")
 classifier_runner = bentoml.Runner(TransformersClassifierRunnable, name="classifier")
 
-bento_runners = {
-    "bert": bert_runner,
-    "classifier": classifier_runner
-}
+bento_runners = {"bert": bert_runner, "classifier": classifier_runner}
