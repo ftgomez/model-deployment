@@ -1,8 +1,8 @@
 provider "google" {
-  region      = "us-central1"
+  region  = var.gcp_region
+  project = var.gcp_project
 }
 
 resource "google_project_service" "vertex_ai" {
   service = "aiplatform.googleapis.com"
-  project     = "steel-mantra-411719"
 }
