@@ -4,4 +4,5 @@ provider "google" {
 
 resource "google_project_service" "vertex_ai" {
   service = "aiplatform.googleapis.com"
+  project     = "steel-mantra-411719"
 }
