@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64/v8 python:3.11
+FROM --platform=linux/x86_64 python:3.11
 
 WORKDIR /app
 
@@ -12,4 +12,4 @@ RUN pip install -r requirements.txt
 ARG BENTO_SERVICE_NAME
 ENV BENTO_SERVICE_NAME=$BENTO_SERVICE_NAME
 
-CMD bentoml serve src/services.py:${BENTO_SERVICE_NAME}
+CMD BENTOML_PORT=8000 bentoml serve src/services.py:${BENTO_SERVICE_NAME}
